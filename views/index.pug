@@ -3,79 +3,87 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Home Portal
-    style.
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(135deg, #e0f7fa, #ffffff);
-        color: #222;
-        text-align: center;
-        padding: 60px 20px;
-      }
-      header {
-        background-color: #007bff;
-        color: white;
-        padding: 20px 0;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        margin-bottom: 40px;
-      }
-      marquee {
-        background-color: #0056b3;
-        color: #fff;
-        padding: 10px 0;
-        font-weight: 500;
-        letter-spacing: 1px;
-        border-radius: 5px;
-        margin-bottom: 25px;
-      }
-      h1 {
-        font-size: 40px;
-        font-weight: 600;
-        margin-bottom: 10px;
-      }
-      p {
-        font-size: 18px;
-        color: #555;
-        margin-bottom: 30px;
-      }
-      a {
-        display: inline-block;
-        margin: 10px;
-        padding: 12px 25px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 30px;
-        font-size: 16px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(0,123,255,0.3);
-      }
-      a:hover {
-        background-color: #0056b3;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(0,86,179,0.4);
-      }
-      footer {
-        margin-top: 50px;
-        font-size: 14px;
-        color: #666;
-      }
-  body 
-    header
-      h1 Government of India – Student Learning & Services Portal
-      p Access all your pages from here
-    marquee(direction="left" scrollamount="6") 🚀 Admissions are open! | 🎓 Check the latest updates | 💻 Explore the student dashboard
-    a(href="/about") Go to About Page
-    br
-    a(href="/students") View Students List
-    br
-    a(href="/contact") Contact Us
-    footer
-      p © 2025 Student Portal. All rights reserved.
+    title National Student Education Portal
+    script(src="https://cdn.tailwindcss.com")
+
+  body(class="bg-gray-50 text-gray-800 min-h-screen flex flex-col font-sans")
+
+    // 🔸 Top Bar
+    div(class="bg-[#FF9933] text-white text-center py-2 text-xs sm:text-sm font-semibold tracking-wide")
+      | 🇮🇳 Ministry of Education | Government of India | Helpline: 1800-111-111
+
+    // 🔹 Header Navbar
+    header(class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-[#138808]")
+      div(class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-3")
+        // 🔸 Left Logos + Title
+        div(class="flex items-center space-x-2")
+          img(src="https://i.pinimg.com/1200x/e2/a0/c9/e2a0c97029dfefe1f7b376f3cba9cc18.jpg" alt="National Emblem" class="h-12 w-12")
+          img(src="https://www.nicepng.com/png/detail/80-804165_indian-flag-satyamev-jayate.png" alt="Satyamev Jayate" class="h-12 w-12")
+          h1(class="text-xl md:text-2xl font-bold text-[#000080] uppercase ml-2") National Student Education Portal
+
+        // 🔸 Navigation (Desktop Only)
+        nav(class="hidden md:flex gap-8 text-[#000080] font-medium")
+          a(href="/" class="hover:text-[#FF9933] transition") Home
+          a(href="/about" class="hover:text-[#FF9933] transition") About
+          a(href="/students" class="hover:text-[#FF9933] transition") Students
+          a(href="/contact" class="hover:text-[#FF9933] transition") Contact
+
+    // 🔹 Marquee
+    marquee(direction="left" scrollamount="6" class="bg-[#138808] text-white py-2 font-semibold shadow-inner")
+      | 🎓 New Scholarships Announced | 💻 Digital Learning 2025 | 🏫 Online Admission Open | 📢 Official Updates from Government of India
+
+    // 🔹 Hero Section
+    section(class="relative w-full")
+      img(
+        src="https://www.pmindia.gov.in/wp-content/uploads/2025/11/Homepage-PM-inaugurates-National-Conference-on-Strengthening-Legal-Aid-Delivery-Mechanisms-at-Supreme-Court-in-New-Delhi.jpg"
+        alt="Student Banner"
+        class="w-full h-[400px] object-cover"
+      )
+
+      // 🔹 Overlay Text (Desktop)
+      div(class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white px-6")
+        h2(class="text-3xl md:text-5xl font-bold text-[#FF9933] mb-4 max-w-3xl") Welcome to the National Student Education Portal
+        p(class="text-lg md:text-xl text-gray-100 mb-6 max-w-2xl") Learn, Grow, and Excel through our government-supported educational initiatives.
+        div(class="flex flex-col sm:flex-row gap-4 justify-center")
+          a(href="/students" class="bg-[#FF9933] hover:bg-[#ff7b00] text-white font-semibold px-8 py-3 rounded-full shadow-md transition") Explore Students
+          a(href="/about" class="bg-[#138808] hover:bg-green-700 text-white px-8 py-3 rounded-full shadow-md transition") Learn More
+
+    // 🔹 Mobile Action Buttons
+    div(class="flex md:hidden flex-col items-center gap-3 mt-5 px-4")
+      a(href="/about" class="bg-[#138808] hover:bg-green-700 text-white w-full text-center py-3 rounded-full shadow-md transition font-medium") About Us
+      a(href="/students" class="bg-[#FF9933] hover:bg-[#ff7b00] text-white w-full text-center py-3 rounded-full shadow-md transition font-medium") View Students
+
+    // 🔹 Main Section
+    main(class="container mx-auto text-center py-12 px-4")
+      h3(class="text-3xl font-semibold text-[#000080] mb-6") Empowering the Youth of India
+      p(class="text-gray-700 mb-10 max-w-2xl mx-auto")
+        | Access verified student data, government services, and educational updates — all in one platform.
+
+      // ✅ Stats Section
+      div(class="grid grid-cols-1 md:grid-cols-3 gap-8")
+        div(class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition border-t-4 border-[#FF9933]")
+          h4(class="text-3xl font-bold text-[#000080]") 2.5M+
+          p(class="text-gray-600 mt-2") Active Students Registered
+        div(class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition border-t-4 border-[#000080]")
+          h4(class="text-3xl font-bold text-[#000080]") 180+
+          p(class="text-gray-600 mt-2") Recognized Institutions
+        div(class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition border-t-4 border-[#138808]")
+          h4(class="text-3xl font-bold text-[#000080]") 99%
+          p(class="text-gray-600 mt-2") Verified Enrollment Rate
+
+    // 🔹 Notices Section
+    section(class="bg-[#FF9933]/10 py-12 mt-10")
+      div(class="container mx-auto text-center")
+        h4(class="text-2xl font-bold text-[#000080] mb-6") Latest Government Notices
+        ul(class="space-y-3 text-gray-700 text-lg")
+          li(class="hover:text-[#FF9933] transition") 📢 New Digital Learning Policy 2025 Released
+          li(class="hover:text-[#FF9933] transition") 🎓 National Scholarship Application Open till Dec 30
+          li(class="hover:text-[#FF9933] transition") 🏫 CBSE Board Digital Certificate Portal Launched
+
+    // 🔹 Footer
+    footer(class="bg-[#000080] text-white text-center py-6 mt-auto")
+      div(class="mb-2")
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Privacy Policy
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Terms of Service
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Contact Support
+      p(class="text-sm mt-3") © 2025 National Student Education Portal | Ministry of Education, Government of India 🇮🇳

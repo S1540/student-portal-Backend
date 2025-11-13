@@ -3,98 +3,58 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Students List - Student Portal
-    style.
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(135deg, #e0f7fa, #ffffff);
-        color: #222;
-        padding: 40px 20px;
-      }
-      header {
-        text-align: center;
-        margin-bottom: 30px;
-      }
-      h1 {
-        font-size: 40px;
-        color: #007bff;
-        margin-bottom: 15px;
-      }
-      marquee {
-        background-color: #0056b3;
-        color: #fff;
-        padding: 10px 0;
-        font-size: 16px;
-        font-weight: 500;
-        border-radius: 5px;
-        margin-bottom: 25px;
-        letter-spacing: 1px;
-      }
-      ul {
-        list-style: none;
-        max-width: 700px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        padding: 0;
-      }
-      li {
-        background-color: #ffffff;
-        border-radius: 12px;
-        padding: 15px 25px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-      }
-      li:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      }
-      li a {
-        text-decoration: none;
-        color: #007bff;
-        font-weight: 600;
-        font-size: 17px;
-      }
-      li a:hover {
-        text-decoration: underline;
-      }
-      .back {
-        display: inline-block;
-        text-align: center;
-        margin: 40px auto 0;
-        background-color: #007bff;
-        color: #fff;
-        text-decoration: none;
-        padding: 12px 30px;
-        border-radius: 25px;
-        font-size: 16px;
-        transition: 0.3s;
-        box-shadow: 0 4px 10px rgba(0,123,255,0.3);
-      }
-      .back:hover {
-        background-color: #0056b3;
-        transform: translateY(-3px);
-      }
-      footer {
-        text-align: center;
-        margin-top: 40px;
-        font-size: 14px;
-        color: #666;
-      }
-  body
-    header
-      h1 Students List
-    marquee(direction="left" scrollamount="6") 🎓 Welcome to the Student Portal | View student details and course info here | Stay updated with the latest academic news!
-    ul 
-      each student in students
-        li
-          a(href=`/student/${student.id}`) #{student.name} - #{student.course}
-    a.back(href="/") ← Back to Home
-    footer
-      p © 2025 Student Portal. All rights reserved.
+    title Students List - National Student Education Portal
+    script(src="https://cdn.tailwindcss.com")
+
+  body(class="bg-gray-50 text-gray-800 min-h-screen flex flex-col font-sans")
+
+    // 🔸 Top Bar
+    div(class="bg-[#FF9933] text-white text-center py-2 text-xs sm:text-sm font-semibold tracking-wide")
+      | 🇮🇳 Ministry of Education | Government of India | Helpline: 1800-111-111
+
+    // 🔹 Header Navbar
+    header(class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-[#138808]")
+      div(class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-3")
+        div(class="flex items-center space-x-2")
+          img(src="https://i.pinimg.com/1200x/e2/a0/c9/e2a0c97029dfefe1f7b376f3cba9cc18.jpg" alt="National Emblem" class="h-12 w-12")
+          img(src="https://www.nicepng.com/png/detail/80-804165_indian-flag-satyamev-jayate.png" alt="Satyamev Jayate" class="h-12 w-12")
+          h1(class="text-xl md:text-2xl font-bold text-[#000080] uppercase ml-2") National Student Education Portal
+
+        nav(class="hidden md:flex gap-8 text-[#000080] font-medium")
+          a(href="/" class="hover:text-[#FF9933] transition") Home
+          a(href="/about" class="hover:text-[#FF9933] transition") About
+          a(href="/students" class="hover:text-[#FF9933] transition font-semibold text-[#FF9933]") Students
+          a(href="/contact" class="hover:text-[#FF9933] transition") Contact
+
+    // 🔹 Marquee
+    marquee(direction="left" scrollamount="6" class="bg-[#138808] text-white py-2 font-semibold shadow-inner")
+      | 🎓 View All Registered Students | 💻 Access Course Details | 🏫 Stay Updated with the Latest Academic Announcements!
+
+    // 🔹 Main Section
+    main(class="container mx-auto text-center py-10 px-4 flex-grow")
+      a(href="/reg" class="inline-block mb-3 text-lg text-red-500 animate-pulse  hover:underline font-semibold ")
+        | 👉 New Student Registration ➔
+      h2(class="text-3xl md:text-4xl font-bold text-[#000080] mb-6") Registered Students List
+      p(class="text-gray-600 mb-8 max-w-2xl mx-auto")
+        | Below is the list of students enrolled under various government-supported educational programs.
+
+      // 🔹 Students Grid
+      ul(class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto")
+        each student in students
+          li(class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition border-t-4 border-[#FF9933]")
+            a(href=`/student/${student.id}` class="block")
+              h3(class="text-lg font-semibold text-[#000080] mb-2") #{student.name}
+              p(class="text-gray-600") 📘 #{student.course}
+
+      // 🔙 Back to Home
+      div(class="mt-10")
+        a(href="/" class="inline-block bg-[#000080] hover:bg-[#001860] text-white px-8 py-3 rounded-full font-medium shadow-md transition")
+          | ← Back to Home
+
+    // 🔹 Footer
+    footer(class="bg-[#000080] text-white text-center py-6 mt-12")
+      div(class="mb-2")
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Privacy Policy
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Terms of Service
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Contact Support
+      p(class="text-sm mt-3") © 2025 National Student Education Portal | Ministry of Education, Government of India 🇮🇳

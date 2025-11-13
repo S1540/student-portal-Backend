@@ -3,156 +3,101 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Contact Us - Student Portal
+    title Contact Us - National Student Education Portal
+    script(src="https://cdn.tailwindcss.com")
+    link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap", rel="stylesheet")
     style.
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
       body {
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(135deg, #d9f1ff, #ffffff);
-        padding: 40px 20px;
-        color: #222;
+        font-family: 'Poppins', sans-serif;
       }
-      header {
-        text-align: center;
-        margin-bottom: 30px;
-      }
-      h1 {
-        font-size: 38px;
-        font-weight: 600;
-        color: #007bff;
-      }
-      marquee {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 0;
-        border-radius: 8px;
-        margin: 20px 0 40px 0;
-        font-weight: 500;
-        font-size: 16px;
-        letter-spacing: 1px;
-      }
-      .contact-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 25px;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-      .contact-info, .contact-form {
-        background-color: #fff;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        padding: 30px 25px;
-        animation: fadeIn 0.8s ease;
-      }
-      .contact-info h2, .contact-form h2 {
-        color: #007bff;
-        font-size: 22px;
-        margin-bottom: 15px;
-      }
-      .info-item {
-        margin-bottom: 20px;
-      }
-      .info-item strong {
-        display: block;
-        font-weight: 600;
-        color: #333;
-      }
-      .info-item span {
-        color: #555;
-      }
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-      input, textarea {
-        width: 100%;
-        padding: 12px 15px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        font-size: 15px;
-        transition: 0.3s;
-      }
-      input:focus, textarea:focus {
-        border-color: #007bff;
-        outline: none;
-        box-shadow: 0 0 5px rgba(0,123,255,0.3);
-      }
-      textarea {
-        resize: none;
-        height: 100px;
-      }
-      button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 12px 20px;
-        border-radius: 25px;
-        font-size: 15px;
-        cursor: pointer;
-        transition: 0.3s;
-        font-weight: 500;
-      }
-      button:hover {
-        background-color: #0056b3;
-        transform: translateY(-2px);
-      }
-      a.back {
-        display: block;
-        text-align: center;
-        margin: 40px auto 0;
-        width: fit-content;
-        background-color: #007bff;
-        color: #fff;
-        text-decoration: none;
-        padding: 12px 30px;
-        border-radius: 30px;
-        transition: 0.3s;
-        font-weight: 500;
-        box-shadow: 0 4px 10px rgba(0,123,255,0.3);
-      }
-      a.back:hover {
-        background-color: #0056b3;
-        transform: translateY(-3px);
-      }
-      footer {
-        text-align: center;
-        margin-top: 50px;
-        font-size: 14px;
-        color: #666;
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-  body
-    header
-      h1 Contact Us
-    marquee(direction="left" scrollamount="6") 📞 Get in touch with the Student Support Team | We're here to help you 24/7 | Student Portal 2025
-    .contact-container
-      .contact-info
-        h2 Contact Information
-        .info-item
-          strong 📍 Address:
-          span Student Portal Office Noida,Uttar Pradesh , India
-        .info-item
-          strong 📧 Email:
-          span support@xyz.com
-        .info-item
-          strong ☎️ Phone:
-          span +91 123-456-7890
-      .contact-form
-        h2 Send a Message
-        form(action="/submit" method="POST")
-          input(type="text" name="name" placeholder="Your Name" required)
-          input(type="email" name="email" placeholder="Your Email" required)
-          textarea(name="message" placeholder="Your Message..." required)
-          button(type="submit") Send Message
-    a.back(href="/") ← Back to Home
-    footer
-      p © 2025 Student Portal. All rights reserved.
+
+  body(class="bg-gray-50 text-gray-800 min-h-screen flex flex-col")
+
+    // 🔸 Top Bar
+    div(class="bg-[#FF9933] text-white text-center py-2 text-xs sm:text-sm font-semibold tracking-wide")
+      | 🇮🇳 Ministry of Education | Government of India | Helpline: 1800-111-111
+
+    // 🔹 Header Navbar
+    header(class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-[#138808]")
+      div(class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-3")
+        div(class="flex items-center space-x-0")
+          img(src="https://i.pinimg.com/1200x/e2/a0/c9/e2a0c97029dfefe1f7b376f3cba9cc18.jpg" alt="National Emblem" class="h-12 w-12")
+          img(src="https://www.nicepng.com/png/detail/80-804165_indian-flag-satyamev-jayate.png" alt="Satyamev Jayate" class="h-12 w-12")
+          h1(class="text-xl md:text-2xl font-bold text-[#000080] uppercase ml-3") National Student Education Portal
+
+        nav(class="md:flex gap-6 mt-3 md:mt-0 text-[#000080] font-medium hidden")
+          a(href="/" class="hover:text-[#FF9933] transition") Home
+          a(href="/about" class="hover:text-[#FF9933] transition") About
+          a(href="/students" class="hover:text-[#FF9933] transition") Students
+          a(href="/contact" class="text-[#FF9933] font-semibold") Contact
+
+    // 🔹 Hero Section
+    section(class="relative")
+      img(
+        src="https://www.pmindia.gov.in/wp-content/uploads/2025/11/Homepage-PM-inaugurates-National-Conference-on-Strengthening-Legal-Aid-Delivery-Mechanisms-at-Supreme-Court-in-New-Delhi.jpg",
+        alt="Contact Banner",
+        class="w-full h-64 sm:h-80 object-cover"
+      )
+      div(class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-4")
+        h2(class="text-4xl font-bold text-[#FF9933] mb-2") Contact the Student Support Team
+        p(class="max-w-2xl text-gray-100 text-lg") Have questions or need help? Our government support team is here to assist you anytime.
+
+    // 🔹 Contact Section
+    main(class="container mx-auto py-16 px-6 grid grid-cols-1 md:grid-cols-2 gap-10")
+      // Info Card
+      div(class="bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#FF9933] backdrop-blur-sm hover:shadow-xl transition")
+        h3(class="text-2xl font-semibold text-[#000080] mb-6") Contact Information
+        ul(class="space-y-4 text-gray-700 text-lg")
+          li
+            span(class="font-semibold text-[#138808]") 📍 Address: 
+            |  National Student Portal Office, Noida, Uttar Pradesh, India
+          li
+            span(class="font-semibold text-[#138808]") ☎️ Phone: 
+            |  +91 1800-111-111
+          li
+            span(class="font-semibold text-[#138808]") 📧 Email: 
+            |  support@nsep.gov.in
+          li
+            span(class="font-semibold text-[#138808]") 🕒 Working Hours: 
+            |  Mon–Sat, 9:00 AM – 6:00 PM
+
+      // Contact Form
+      div(class="bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#138808] backdrop-blur-sm hover:shadow-xl transition")
+        h3(class="text-2xl font-semibold text-[#000080] mb-6") Send Us a Message
+        form(action="/submit" method="POST" class="space-y-5")
+          input(
+            type="text",
+            name="name",
+            placeholder="Your Full Name",
+            required,
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF9933]"
+          )
+          input(
+            type="email",
+            name="email",
+            placeholder="Your Email Address",
+            required,
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF9933]"
+          )
+          textarea(
+            name="message",
+            placeholder="Your Message...",
+            required,
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#FF9933]"
+          )
+          button(
+            type="submit",
+            class="w-full bg-gradient-to-r from-[#FF9933] to-[#138808] text-white font-semibold py-3 rounded-full shadow-md hover:opacity-90 transition"
+          ) Send Message
+
+    // 🔹 Back Button
+    div(class="text-center mt-10")
+      a(href="/" class="bg-[#000080] hover:bg-[#001b5c] text-white px-6 py-3 rounded-full font-medium shadow-md transition") ← Back to Home
+
+    // 🔹 Footer
+    footer(class="bg-[#000080] text-white text-center py-6 mt-auto")
+      div(class="mb-2")
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Privacy Policy
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Terms of Service
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Contact Support
+      p(class="text-sm mt-3") © 2025 National Student Education Portal | Ministry of Education, Government of India 🇮🇳

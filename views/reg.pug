@@ -1,0 +1,66 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Student Registration - National Student Portal
+    script(src="https://cdn.tailwindcss.com")
+  body(class="bg-gray-50 min-h-screen flex flex-col items-center font-sans")
+
+    div(class="bg-[#FF9933] max-w-full w-full text-white text-center py-2 text-xs sm:text-sm font-semibold tracking-wide")
+      | 🇮🇳 Ministry of Education | Government of India | Helpline: 1800-111-111
+
+    // 🔹 Header Navbar
+    header(class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-[#138808] max-w-full w-full")
+      div(class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-3")
+        div(class="flex items-center space-x-2")
+          img(src="https://i.pinimg.com/1200x/e2/a0/c9/e2a0c97029dfefe1f7b376f3cba9cc18.jpg" alt="National Emblem" class="h-12 w-12")
+          img(src="https://www.nicepng.com/png/detail/80-804165_indian-flag-satyamev-jayate.png" alt="Satyamev Jayate" class="h-12 w-12")
+          h1(class="text-xl md:text-2xl font-bold text-[#000080] uppercase ml-2") National Student Education Portal
+
+        nav(class="hidden md:flex gap-8 text-[#000080] font-medium")
+          a(href="/" class="hover:text-[#FF9933] transition") Home
+          a(href="/about" class="hover:text-[#FF9933] transition") About
+          a(href="/students" class="hover:text-[#FF9933] transition font-semibold text-[#FF9933]") Students
+          a(href="/contact" class="hover:text-[#FF9933] transition") Contact
+
+    // 🔹 Marquee
+    marquee(direction="left" scrollamount="6" class="bg-[#138808] text-white py-2 font-semibold shadow-inner")
+      | 🎓 View All Registered Students | 💻 Access Course Details | 🏫 Stay Updated with the Latest Academic Announcements!
+
+    // 🔹 Registration Container
+    div(class="bg-white shadow-lg rounded-2xl p-8 md:p-12 w-full max-w-md border-t-4 border-[#FF9933]")
+      h1(class="text-3xl font-bold text-[#138808] mb-4 text-center") New Student Registration
+      p(class="text-gray-600 mb-6 text-center") Fill in the details to create your student account
+
+      // 🔹 Form
+      form(action="/register" method="POST" class="flex flex-col gap-4")
+        div
+          label(for="name" class="block text-gray-700 font-medium mb-1") Full Name
+          input(type="text" name="name" id="name" placeholder="Enter your full name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF9933] transition")
+        div
+          label(for="email" class="block text-gray-700 font-medium mb-1") Email Address
+          input(type="email" name="email" id="email" placeholder="Enter your email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#138808] transition")
+        div
+          label(for="password" class="block text-gray-700 font-medium mb-1") Password
+          input(type="password" name="password" id="password" placeholder="Enter your password" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#000080] transition")
+        div
+          label(for="age" class="block text-gray-700 font-medium mb-1") Age
+          input(type="number" name="age" id="age" placeholder="Enter your age" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF9933] transition")
+        div
+          label(for="course" class="block text-gray-700 font-medium mb-1") Course
+          input(type="text" name="course" id="course" placeholder="Enter your course" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#138808] transition")
+
+        // Submit Button
+        button(type="submit" class="bg-gradient-to-r from-[#FF9933] via-[#FFFFFF] to-[#138808] text-white font-semibold px-6 py-3 rounded-xl shadow-md transition mt-2 hover:from-[#FF9933]/90 hover:via-[#FFFFFF]/90 hover:to-[#138808]/90") Register
+
+      // Back Button
+      div(class="text-center mt-6")
+        a(href="/" class="text-[#000080] hover:text-[#138808] font-medium transition") ← Back to Home
+// 🔹 Footer
+footer(class="bg-[#000080] text-white text-center py-6 mt-12 w-full")
+  div(class="mb-2")
+    a(href="#" class="mx-3 hover:text-[#FF9933] transition") Privacy Policy
+    a(href="#" class="mx-3 hover:text-[#FFFFFF] transition") Terms of Service
+    a(href="#" class="mx-3 hover:text-[#138808] transition") Contact Support
+  p(class="text-sm mt-3") © 2025 National Student Education Portal | Crafted with ❤️ by Team G.Dutt 🇮🇳

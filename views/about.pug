@@ -3,124 +3,96 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title About Us - Student Portal
+    title About Us - National Student Education Portal
+    script(src="https://cdn.tailwindcss.com")
+
+  body(class="bg-gray-50 text-gray-800 min-h-screen flex flex-col font-sans")
+
+    // 🔸 Top Info Bar
+    div(class="bg-[#FF9933] text-white text-center py-2 text-xs sm:text-sm font-semibold tracking-wide")
+      | 🇮🇳 Ministry of Education | Government of India | Empowering Students Nationwide
+
+    // 🔹 Header Navbar
+    header(class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-[#138808]")
+      div(class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-3")
+        div(class="flex items-center space-x-2")
+          img(src="https://i.pinimg.com/1200x/e2/a0/c9/e2a0c97029dfefe1f7b376f3cba9cc18.jpg" alt="National Emblem" class="h-12 w-12")
+          img(src="https://www.nicepng.com/png/detail/80-804165_indian-flag-satyamev-jayate.png" alt="Satyamev Jayate" class="h-12 w-12")
+          h1(class="text-xl md:text-2xl font-bold text-[#000080] uppercase ml-2") National Student Education Portal
+
+        nav(class="hidden md:flex gap-8 text-[#000080] font-medium")
+          a(href="/" class="hover:text-[#FF9933] transition") Home
+          a(href="/about" class="text-[#FF9933] font-semibold") About
+          a(href="/students" class="hover:text-[#FF9933] transition") Students
+          a(href="/contact" class="hover:text-[#FF9933] transition") Contact
+
+    // 🔹 Marquee
+    marquee(direction="left" scrollamount="6" class="bg-[#138808] text-white py-2 font-semibold shadow-inner")
+      | 💡 Learn more about our mission, values, and dedicated team shaping the future of student education.
+
+    // 🔹 Education Banner (below marquee)
+    section(class="relative w-full h-[300px] sm:h-[400px] md:h-[450px] overflow-hidden")
+      img(src="https://www.pmindia.gov.in/wp-content/uploads/2025/11/Homepage-PM-inaugurates-National-Conference-on-Strengthening-Legal-Aid-Delivery-Mechanisms-at-Supreme-Court-in-New-Delhi.jpg" alt="Education Banner" class="w-full h-full object-cover brightness-75")
+      div(class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4")
+        h2(class="text-3xl md:text-4xl font-bold drop-shadow-lg") About National Student Portal
+        p(class="text-lg md:text-xl mt-2 font-medium drop-shadow-md") One Nation, One Platform for Student Empowerment 🇮🇳
+
+    // 🔹 About Section
+    main(class="container mx-auto px-4 py-12")
+      h1(class="text-3xl md:text-4xl font-bold text-[#000080] text-center mb-2") About Us
+      p(class="text-gray-600 text-center mb-10 text-lg") Learn more about our mission, vision, and team
+
+      // 🔸 About Cards
+      div(class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto")
+        div(class="bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#FF9933] hover:shadow-xl transition animate-fadeIn")
+          h2(class="text-2xl font-semibold text-[#138808] mb-3") Our Mission
+          p(class="text-gray-700 leading-relaxed")
+            | Student Portal is designed to make education and management easy for students and institutions. 
+            | Our goal is to bring study materials, results, attendance, and announcements together on one secure platform.
+
+        div(class="bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#138808] hover:shadow-xl transition animate-fadeIn")
+          h2(class="text-2xl font-semibold text-[#138808] mb-3") Our Vision
+          p(class="text-gray-700 leading-relaxed")
+            | We aim to empower students through digital transformation, accessibility, and innovation — creating an inclusive and smart educational ecosystem.
+
+      // 🔸 Team Section
+      section(class="mt-16 text-center")
+        h2(class="text-3xl font-semibold text-[#000080] mb-10") Meet Our Team
+        div(class="flex flex-wrap justify-center gap-8")
+          div(class="bg-white shadow-md rounded-xl p-6 w-64 hover:shadow-xl transition")
+            img(src="https://ganeshdutt.netlify.app/newImgGanesh3Circle1.jpg" alt="Ganesh" class="h-20 w-20 rounded-full mx-auto mb-4")
+            h3(class="text-[#000080] font-semibold text-lg") Ganesh Dutt
+            p(class="text-gray-600 text-sm") Founder & CEO
+
+          div(class="bg-white shadow-md rounded-xl p-6 w-64 hover:shadow-xl transition")
+            img(src="https://shubham-singh-007.netlify.app/assets/AboutProfile.jpg" alt="Shubham" class="h-20 w-20 rounded-full mx-auto mb-4")
+            h3(class="text-[#000080] font-semibold text-lg") Shubham Singh
+            p(class="text-gray-600 text-sm") Frontend Engineer
+
+          div(class="bg-white shadow-md rounded-xl p-6 w-64 hover:shadow-xl transition")
+            img(src="https://cdn-icons-png.flaticon.com/512/219/219969.png" alt="Pankaj" class="h-20 w-20 rounded-full mx-auto mb-4")
+            h3(class="text-[#000080] font-semibold text-lg") Pankaj Singh
+            p(class="text-gray-600 text-sm") Backend Developer
+
+      // 🔙 Back Button
+      div(class="text-center mt-12")
+        a(href="/" class="inline-block bg-[#000080] hover:bg-[#001860] text-white px-8 py-3 rounded-full font-medium shadow-md transition")
+          | ← Back to Home
+
+    // 🔹 Footer
+    footer(class="bg-[#000080] text-white text-center py-6 mt-16")
+      div(class="mb-2")
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Privacy Policy
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Terms of Service
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Contact Support
+      p(class="text-sm mt-3") © 2025 National Student Education Portal | Crafted with ❤️ by Team G.Dutt 🇮🇳
+
+    // 🔸 Animation
     style.
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(135deg, #e3f2fd, #ffffff);
-        color: #222;
-        padding: 50px 20px;
-      }
-      header {
-        text-align: center;
-        margin-bottom: 40px;
-      }
-      h1 {
-        font-size: 40px;
-        color: #007bff;
-        margin-bottom: 10px;
-      }
-      p.subtitle {
-        font-size: 18px;
-        color: #555;
-      }
-      .about-container {
-        max-width: 900px;
-        margin: 0 auto;
-        background-color: #fff;
-        border-radius: 15px;
-        padding: 40px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        line-height: 1.7;
-        animation: fadeIn 1.2s ease-in-out;
-      }
-      .about-container h2 {
-        color: #0056b3;
-        margin-bottom: 15px;
-        font-size: 26px;
-      }
-      .about-container p {
-        margin-bottom: 20px;
-        font-size: 17px;
-        color: #444;
-      }
-      .team {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin-top: 30px;
-      }
-      .member {
-        background-color: #f8f9fa;
-        border-radius: 10px;
-        padding: 20px;
-        width: 250px;
-        margin: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        transition: 0.3s;
-      }
-      .member:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-      }
-      .member h3 {
-        color: #007bff;
-        margin-bottom: 8px;
-      }
-      .member p {
-        color: #666;
-        font-size: 14px;
-      }
-      a.back {
-        display: inline-block;
-        margin-top: 30px;
-        padding: 10px 25px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 25px;
-        transition: 0.3s;
-      }
-      a.back:hover {
-        background-color: #0056b3;
-      }
-      footer {
-        text-align: center;
-        margin-top: 40px;
-        color: #777;
-        font-size: 14px;
-      }
       @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(30px); }
+        from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
       }
-  body
-    header
-      h1 About Student Portal
-      p.subtitle Learn more about our mission and team
-    .about-container
-      h2 Our Mission
-      p Student Portal is designed to make learning and management easy for students and institutions. 
-        | We aim to provide a single platform where students can access study materials, results, attendance, and announcements — all in one place.
-      h2 What We Offer
-      p From course updates to student communication, we simplify everything through technology. 
-        | Our platform is secure, user-friendly, and built using modern web technologies like Node.js, Express, and MongoDB.
-      h2 Meet Our Team
-      .team
-        .member
-          h3 Ganesh Dutt
-          p Founder & CEO
-        .member
-          h3 Shubham Singh
-          p Frontend Engineer
-        .member
-          h3 Pankaj Singh
-          p Backend Developer
-    a.back(href="/") ← Back to Home
-    footer
-      p © 2025 Student Portal. Crafted with ❤️ by Team G.DUTT.
+      .animate-fadeIn {
+        animation: fadeIn 1s ease-in-out;
+      }

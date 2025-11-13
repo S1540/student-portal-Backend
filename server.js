@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const fs = require("fs");
+const path = require("path");
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -7,38 +9,7 @@ app.set("view engine", "pug");
 app.set("views", "./views");
 
 // data
-const students = [
-  {
-    id: "101",
-    name: "Shubham Singh",
-    age: 22,
-    course: "MERN STACK",
-  },
-  {
-    id: "102",
-    name: "Aarav",
-    age: 21,
-    course: "Java Full Stack",
-  },
-  {
-    id: "103",
-    name: "Shreya Singh",
-    age: 22,
-    course: "Python",
-  },
-  {
-    id: "104",
-    name: "Aditya Shrivastava",
-    age: 25,
-    course: "Ai & ML",
-  },
-  {
-    id: "105",
-    name: "Krishna Jha",
-    age: 27,
-    course: "Data Science",
-  },
-];
+const studentsData = path.join(__dirname, "public", "users.json");
 
 app.get("/", (req, res) => {
   res.render("index", {
@@ -58,8 +29,16 @@ app.get("/contact", (req, res) => {
     message: "Welcome to the Contact Page!",
   });
 });
+app.get("/reg", (req, res) => {
+  res.render("reg", {
+    title: "Student Registration Page",
+    message: "Welcome to the Student Registration Page!",
+  });
+});
 
 app.get("/students", (req, res) => {
+  const data = fs.readFileSync(studentsData, "utf-8");
+  const students = JSON.parse(data);
   res.render("students", {
     title: "Students Page",
     message: "Welcome to the Students Page!",
@@ -76,6 +55,8 @@ app.post("/submit", (req, res) => {
 });
 
 app.get("/student/:id", (req, res) => {
+  const data = fs.readFileSync(studentsData, "utf-8");
+  const students = JSON.parse(data);
   const studentId = req.params.id;
   const student = students.find((s) => s.id === studentId);
   if (student) {

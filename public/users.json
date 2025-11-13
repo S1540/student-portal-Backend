@@ -1,0 +1,32 @@
+[
+  {
+    "id": "101",
+    "name": "Shubham Singh",
+    "age": 22,
+    "course": "MERN STACK"
+  },
+  {
+    "id": "102",
+    "name": "Aarav",
+    "age": 21,
+    "course": "Java Full Stack"
+  },
+  {
+    "id": "103",
+    "name": "Shreya Singh",
+    "age": 22,
+    "course": "Python"
+  },
+  {
+    "id": "104",
+    "name": "Aditya Shrivastava",
+    "age": 25,
+    "course": "Ai & ML"
+  },
+  {
+    "id": "105",
+    "name": "Krishna Jha",
+    "age": 27,
+    "course": "Data Science"
+  }
+]

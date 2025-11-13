@@ -3,96 +3,80 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Student Details - Student Portal
+    title Student Details - National Student Education Portal
+    script(src="https://cdn.tailwindcss.com")
+
+  body(class="bg-gray-50 text-gray-800 min-h-screen flex flex-col font-sans")
+
+    // 🔸 Top Bar
+    div(class="bg-[#FF9933] text-white text-center py-2 text-xs sm:text-sm font-semibold tracking-wide")
+      | 🇮🇳 Ministry of Education | Government of India | Helpline: 1800-111-111
+
+    // 🔹 Header Navbar
+    header(class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-[#138808]")
+      div(class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-3")
+        div(class="flex items-center space-x-2")
+          img(src="https://i.pinimg.com/1200x/e2/a0/c9/e2a0c97029dfefe1f7b376f3cba9cc18.jpg" alt="National Emblem" class="h-12 w-12")
+          img(src="https://www.nicepng.com/png/detail/80-804165_indian-flag-satyamev-jayate.png" alt="Satyamev Jayate" class="h-12 w-12")
+          h1(class="text-xl md:text-2xl font-bold text-[#000080] uppercase ml-2") National Student Education Portal
+
+        nav(class="hidden md:flex gap-8 text-[#000080] font-medium")
+          a(href="/" class="hover:text-[#FF9933] transition") Home
+          a(href="/about" class="hover:text-[#FF9933] transition") About
+          a(href="/students" class="hover:text-[#FF9933] transition") Students
+          a(href="/contact" class="hover:text-[#FF9933] transition") Contact
+
+    // 🔹 Marquee
+    marquee(direction="left" scrollamount="6" class="bg-[#138808] text-white py-2 font-semibold shadow-inner")
+      | 📚 Student Information Portal | View Full Profile & Academic Details | Stay Connected for Updates!
+
+    // 🔹 Main Section
+    main(class="flex-grow container mx-auto text-center py-12 px-4")
+      h2(class="text-3xl md:text-4xl font-bold text-[#000080] mb-8") Student Details
+
+      // 🔹 Card Section
+      div(class="bg-white max-w-lg mx-auto p-8 rounded-2xl shadow-xl border-t-4 border-[#FF9933] text-left space-y-5 animate-fadeIn")
+        p(class="text-lg font-medium text-gray-700") 
+          | Name : 
+          span(class="text-[#000080] font-semibold") #{student.name}
+
+        p(class="text-lg font-medium text-gray-700") 
+          | Course : 
+          span(class="text-[#000080] font-semibold") #{student.course}
+
+        p(class="text-lg font-medium text-gray-700") 
+          | Age : 
+          span(class="text-[#000080] font-semibold") #{student.age}
+
+        if student.email
+          p(class="text-lg font-medium text-gray-700") 
+            | Email : 
+            span(class="text-[#000080] font-semibold") #{student.email}
+
+        if student.enrollment
+          p(class="text-lg font-medium text-gray-700") 
+            | Enrollment No : 
+            span(class="text-[#000080] font-semibold") #{student.enrollment}
+
+      // 🔙 Back to List Button
+      div(class="text-center mt-10")
+        a(href="/students" class="inline-block bg-[#000080] hover:bg-[#001860] text-white px-8 py-3 rounded-full font-medium shadow-md transition")
+          | ← Back to Students List
+
+    // 🔹 Footer
+    footer(class="bg-[#000080] text-white text-center py-6 mt-12")
+      div(class="mb-2")
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Privacy Policy
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Terms of Service
+        a(href="#" class="mx-3 hover:text-[#FF9933]") Contact Support
+      p(class="text-sm mt-3") © 2025 National Student Education Portal | Ministry of Education, Government of India 🇮🇳
+
+    // 🔸 Animation
     style.
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(135deg, #d4fc79, #96e6a1);
-        color: #222;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 20px;
-      }
-      marquee {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 0;
-        font-size: 16px;
-        font-weight: 500;
-        border-radius: 8px;
-        width: 100%;
-        max-width: 800px;
-        margin-bottom: 30px;
-      }
-      h1 {
-        color: #0056b3;
-        font-size: 38px;
-        font-weight: 600;
-        margin-bottom: 25px;
-        text-align: center;
-      }
-      .card {
-        background-color: #fff;
-        border-radius: 20px;
-        padding: 35px 45px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        width: 100%;
-        max-width: 500px;
-        animation: fadeIn 1s ease;
-      }
-      .card p {
-        font-size: 18px;
-        color: #444;
-        margin: 12px 0;
-        font-weight: 500;
-      }
-      .card span {
-        color: #007bff;
-        font-weight: 600;
-      }
-      a.back {
-        display: inline-block;
-        margin-top: 40px;
-        padding: 12px 28px;
-        background-color: #007bff;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 30px;
-        transition: 0.3s;
-        font-size: 16px;
-        box-shadow: 0 4px 10px rgba(0,123,255,0.3);
-      }
-      a.back:hover {
-        background-color: #0056b3;
-        transform: translateY(-3px);
-      }
-      footer {
-        text-align: center;
-        margin-top: 50px;
-        color: #666;
-        font-size: 14px;
-      }
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(30px); }
         to { opacity: 1; transform: translateY(0); }
       }
-  body
-    marquee(direction="left" scrollamount="6") 📚 Student Information Portal | View full profile and academic details | Stay connected for updates
-    h1 Student Details
-    .card
-      p Name : 
-        span #{student.name}
-      p Course : 
-        span #{student.course}
-      p Age : 
-        span #{student.age}
-    a.back(href="/students") ← Back to Students List
-    footer
-      p © 2025 Student Portal. Managed by School Administration.
+      .animate-fadeIn {
+        animation: fadeIn 0.8s ease-in-out;
+      }
