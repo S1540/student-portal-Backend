@@ -1,0 +1,100 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Students List - Student Portal
+    style.
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #e0f7fa, #ffffff);
+        color: #222;
+        padding: 40px 20px;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      h1 {
+        font-size: 40px;
+        color: #007bff;
+        margin-bottom: 15px;
+      }
+      marquee {
+        background-color: #0056b3;
+        color: #fff;
+        padding: 10px 0;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 5px;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+      }
+      ul {
+        list-style: none;
+        max-width: 700px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 0;
+      }
+      li {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 15px 25px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+      }
+      li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      }
+      li a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: 600;
+        font-size: 17px;
+      }
+      li a:hover {
+        text-decoration: underline;
+      }
+      .back {
+        display: inline-block;
+        text-align: center;
+        margin: 40px auto 0;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 16px;
+        transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+      }
+      .back:hover {
+        background-color: #0056b3;
+        transform: translateY(-3px);
+      }
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #666;
+      }
+  body
+    header
+      h1 Students List
+    marquee(direction="left" scrollamount="6") 🎓 Welcome to the Student Portal | View student details and course info here | Stay updated with the latest academic news!
+    ul 
+      each student in students
+        li
+          a(href=`/student/${student.id}`) #{student.name} - #{student.course}
+    a.back(href="/") ← Back to Home
+    footer
+      p © 2025 Student Portal. All rights reserved.

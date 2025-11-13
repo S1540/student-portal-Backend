@@ -1,0 +1,98 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Student Details - Student Portal
+    style.
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #d4fc79, #96e6a1);
+        color: #222;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+      }
+      marquee {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 0;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 800px;
+        margin-bottom: 30px;
+      }
+      h1 {
+        color: #0056b3;
+        font-size: 38px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      .card {
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 35px 45px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 500px;
+        animation: fadeIn 1s ease;
+      }
+      .card p {
+        font-size: 18px;
+        color: #444;
+        margin: 12px 0;
+        font-weight: 500;
+      }
+      .card span {
+        color: #007bff;
+        font-weight: 600;
+      }
+      a.back {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 12px 28px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: 0.3s;
+        font-size: 16px;
+        box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+      }
+      a.back:hover {
+        background-color: #0056b3;
+        transform: translateY(-3px);
+      }
+      footer {
+        text-align: center;
+        margin-top: 50px;
+        color: #666;
+        font-size: 14px;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+  body
+    marquee(direction="left" scrollamount="6") 📚 Student Information Portal | View full profile and academic details | Stay connected for updates
+    h1 Student Details
+    .card
+      p Name : 
+        span #{student.name}
+      p Course : 
+        span #{student.course}
+      p Age : 
+        span #{student.age}
+    a.back(href="/students") ← Back to Students List
+    footer
+      p © 2025 Student Portal. Managed by School Administration.
