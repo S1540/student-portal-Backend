@@ -29,34 +29,47 @@ html(lang="en")
       | 🎓 View All Registered Students | 💻 Access Course Details | 🏫 Stay Updated with the Latest Academic Announcements!
 
     // 🔹 Registration Container
-    div(class="bg-white shadow-lg rounded-2xl p-8 md:p-12 w-full max-w-md border-t-4 border-[#FF9933]")
+    div(class="bg-white shadow-lg rounded-2xl p-8 md:p-12 w-full max-w-4xl border-t-4 border-[#FF9933]")
       h1(class="text-3xl font-bold text-[#138808] mb-4 text-center") New Student Registration
       p(class="text-gray-600 mb-6 text-center") Fill in the details to create your student account
 
-      // 🔹 Form
-      form(action="/register" method="POST" class="flex flex-col gap-4")
-        div
-          label(for="name" class="block text-gray-700 font-medium mb-1") Full Name
-          input(type="text" name="name" id="name" placeholder="Enter your full name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF9933] transition")
-        div
-          label(for="email" class="block text-gray-700 font-medium mb-1") Email Address
-          input(type="email" name="email" id="email" placeholder="Enter your email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#138808] transition")
-        div
-          label(for="password" class="block text-gray-700 font-medium mb-1") Password
-          input(type="password" name="password" id="password" placeholder="Enter your password" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#000080] transition")
-        div
-          label(for="age" class="block text-gray-700 font-medium mb-1") Age
-          input(type="number" name="age" id="age" placeholder="Enter your age" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF9933] transition")
-        div
-          label(for="course" class="block text-gray-700 font-medium mb-1") Course
-          input(type="text" name="course" id="course" placeholder="Enter your course" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#138808] transition")
-
+      // 🔹 Form (Horizontal Layout on md+ screens)
+      form(action="/register" method="POST" enctype="multipart/form-data" class="flex flex-col gap-6")
+        
+        // Row 1: Name + Email
+        div(class="flex flex-col md:flex-row gap-4")
+          div(class="flex-1")
+            label(for="name" class="block text-gray-700 font-medium mb-1") Full Name
+            input(type="text" name="name" id="name" placeholder="Enter your full name" required class="w-full border border-gray-300 rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF9933] transition")
+          div(class="flex-1")
+            label(for="email" class="block text-gray-700 font-medium mb-1") Email Address
+            input(type="email" name="email" id="email" placeholder="Enter your email" required class="w-full border border-gray-300 rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#138808] transition")
+        
+        // Row 2: Password + Age
+        div(class="flex flex-col md:flex-row gap-4")
+          div(class="flex-1")
+            label(for="password" class="block text-gray-700 font-medium mb-1") Password
+            input(type="password" name="password" id="password" placeholder="Enter your password" required class="w-full border border-gray-300 rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#000080] transition")
+          div(class="flex-1")
+            label(for="age" class="block text-gray-700 font-medium mb-1") Age
+            input(type="number" name="age" id="age" placeholder="Enter your age" required class="w-full border border-gray-300 rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF9933] transition")
+        
+        // Row 3: Course + Profile Upload
+        div(class="flex flex-col md:flex-row gap-4")
+          div(class="flex-1")
+            label(for="course" class="block text-gray-700 font-medium mb-1") Course
+            input(type="text" name="course" id="course" placeholder="Enter your course" required class="w-full border border-gray-300 rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#138808] transition")
+          div(class="flex-1")
+            label(for="profile" class="block text-gray-700 font-medium mb-1") Upload Photo
+            input(type="file" name="profile" id="profile" accept="image/*" class="w-full text-gray-600 file:border file:border-gray-300 file:px-4 file:py-2 file:rounded-sm file:text-sm file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer")
+        
         // Submit Button
-        button(type="submit" class="bg-gradient-to-r from-[#FF9933] via-[#FFFFFF] to-[#138808] text-white font-semibold px-6 py-3 rounded-xl shadow-md transition mt-2 hover:from-[#FF9933]/90 hover:via-[#FFFFFF]/90 hover:to-[#138808]/90") Register
+        button(type="submit" class="bg-gradient-to-r from-[#FF9933] via-[#FFFFFF] to-[#138808] text-gray-900 font-semibold px-6 py-3 rounded-sm shadow-md transition mt-2 hover:from-[#FF9933]/90 hover:via-[#FFFFFF]/90 hover:to-[#138808]/90 max-w-96 w-full mx-auto") Register
 
       // Back Button
       div(class="text-center mt-6")
         a(href="/" class="text-[#000080] hover:text-[#138808] font-medium transition") ← Back to Home
+
 // 🔹 Footer
 footer(class="bg-[#000080] text-white text-center py-6 mt-12 w-full")
   div(class="mb-2")
