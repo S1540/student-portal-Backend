@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 const path = require("path");
+const multer = require("multer");
+const upload = multer();
+
+// app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -35,6 +39,33 @@ app.get("/reg", (req, res) => {
     message: "Welcome to the Student Registration Page!",
   });
 });
+app.post("/register", upload.none(), (req, res) => {
+  const userPath = studentsData;
+  const users = JSON.parse(fs.readFileSync(userPath, "utf-8"));
+  const newStudentData = {
+    id: toString(users.length + 1), // users.length + 1,
+    name: req.body.name,
+    email: req.body.email,
+    age: req.body.age,
+    course: req.body.course,
+    profile: req.body.profile,
+  };
+  users.push(newStudentData);
+  fs.writeFileSync(userPath, JSON.stringify(users));
+  console.log("NEw Student registered ");
+  res.redirect("/students");
+
+  // res.render("success", {
+  //   title: "Success",
+  //   message: "Your message has been sent successfully!",
+  //   name,
+  //   email,
+  //   age,
+  //   course,
+  //   profile,
+  // });
+  // console.log(req.body);
+});
 
 app.get("/students", (req, res) => {
   const data = fs.readFileSync(studentsData, "utf-8");
@@ -45,14 +76,14 @@ app.get("/students", (req, res) => {
     students,
   });
 });
-app.post("/submit", (req, res) => {
-  // const { name, email, message } = req.body;
-  // console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
-  res.render("success", {
-    title: "Success",
-    message: "Your message has been sent successfully!",
-  });
-});
+// app.post("/submit", (req, res) => {
+//   // const { name, email, message } = req.body;
+//   // console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
+//   res.render("success", {
+//     title: "Success",
+//     message: "Your message has been sent successfully!",
+//   });
+// });
 
 app.get("/student/:id", (req, res) => {
   const data = fs.readFileSync(studentsData, "utf-8");
