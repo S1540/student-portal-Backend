@@ -36,7 +36,7 @@ html(lang="en")
 
       // 🔹 Card Section
       div(class="bg-white max-w-7xl w-full mx-auto p-8 rounded-2xl shadow-xl border-t-4 border-[#FF9933] animate-fadeIn")
-        // Flex container for image + details
+        // image + details
         div(class="flex flex-col md:flex-row md:items-start md:space-x-10 space-y-6 md:space-y-0")
           
           // Left: Profile Image
@@ -49,7 +49,7 @@ html(lang="en")
               )
           
           // Right: Student Details
-          div(class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6")
+          div(class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-6")
             p(class="text-lg font-medium text-gray-700")
               | Name : 
               span(class="text-[#000080] font-semibold") #{student.name}
@@ -67,12 +67,16 @@ html(lang="en")
                 | Email : 
                 span(class="text-[#000080] font-semibold") #{student.email}
 
-            if student.enrollment
+            if student.category
               p(class="text-lg font-medium text-gray-700")
-                | Enrollment No : 
-                span(class="text-[#000080] font-semibold") #{student.enrollment}
+                | category  : 
+                span(class="text-[#000080] font-semibold") #{student.category}
+            if student.state
+              p(class="text-lg font-medium text-gray-700")
+                | State  : 
+                span(class="text-[#000080] font-semibold") #{student.state}
 
-        // 🔙 Back to List Button
+        //  Back to List Button
         div(class="text-center mt-10")
           a(href="/students" class="inline-block bg-[#000080] hover:bg-[#001860] text-white px-8 py-3 rounded-full font-medium shadow-md transition")
             | ← Back to Students List

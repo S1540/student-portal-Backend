@@ -29,7 +29,7 @@ html(lang="en")
       | 🎓 View All Registered Students | 💻 Access Course Details | 🏫 Stay Updated with the Latest Academic Announcements!
 
     // 🔹 Registration Container
-    div(class="bg-white shadow-lg rounded-2xl p-8 md:p-12 w-full max-w-4xl border-t-4 border-[#FF9933]")
+    div(class="bg-white shadow-lg rounded-2xl p-8 md:p-12 w-full max-w-full border-t-4 border-[#FF9933]")
       h1(class="text-3xl font-bold text-[#138808] mb-4 text-center") New Student Registration
       p(class="text-gray-600 mb-6 text-center") Fill in the details to create your student account
 
@@ -44,6 +44,16 @@ html(lang="en")
           div(class="flex-1")
             label(for="email" class="block text-gray-700 font-medium mb-1") Email Address
             input(type="email" name="email" id="email" placeholder="Enter your email" required class="w-full border border-gray-300 rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#138808] transition")
+          div(class="flex-1")
+            label(for="category" class="block text-gray-700 font-medium mb-1") Category
+            select(name="category" id="category" required class="w-full border border-gray-300 rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#138808] transition")
+              option(value='selected disabled') --Select Category
+              option(value="BC-I")  BC-I
+              option(value="BC-II")  BC-II
+              option(value="General")  General
+              option(value="OBC")  OBC
+              option(value="OTHER")  OTHER
+            
         
         // Row 2: Password + Age
         div(class="flex flex-col md:flex-row gap-4")
@@ -53,6 +63,19 @@ html(lang="en")
           div(class="flex-1")
             label(for="age" class="block text-gray-700 font-medium mb-1") Age
             input(type="number" name="age" id="age" placeholder="Enter your age" required class="w-full border border-gray-300 rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF9933] transition")
+          div(class="flex-1")
+            label(for="state" class="block text-gray-700 font-medium mb-1") State
+            select(name="state" id="category" required class="w-full border border-gray-300 rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#138808] transition")
+              option(value='selected disabled') --State
+              option(value="Andhra Pradesh")  Andhra Pradesh
+              option(value="Arunachal Pradesh")  Arunachal Pradesh
+              option(value="Assam")  Assam
+              option(value="Bihar")  Bihar
+              option(value="Uttar Pradesh")  Uttar Pradesh  
+              option(value="Haryana")  Haryana  
+              option(value="Gujrat")  Gujrat  
+              option(value="Rajsthan")  Rajsthan  
+              option(value="Other")  Other  
         
         // Row 3: Course + Profile Upload
         div(class="flex flex-col md:flex-row gap-4")
@@ -62,7 +85,46 @@ html(lang="en")
           div(class="flex-1")
             label(for="profile" class="block text-gray-700 font-medium mb-1") Upload Photo
             input(type="file" name="profile" id="profile" accept="image/*" class="w-full text-gray-600 file:border file:border-gray-300 file:px-4 file:py-2 file:rounded-sm file:text-sm file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer")
+          div(class="flex-1")
+            label(for="signature" class="block text-gray-700 font-medium mb-1") Upload Signature
+            input(type="file" name="signature" id="signature" accept="image/*" class="w-full text-gray-600 file:border file:border-gray-300 file:px-4 file:py-2 file:rounded-sm file:text-sm file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer")
         
+       
+        div(class="flex gap-2 items-start  space-x-3 mt-4")
+            input(
+              type="checkbox"
+              id="terms"
+              name="terms"
+              required
+              class="h-5 w-5 border-gray-300 rounded focus:ring-[#FF9933]"
+            )
+            label(for="terms" class="text-sm text-gray-700 leading-relaxed")
+              | I agree to the 
+              span(class="font-semibold text-[#000080]") Terms & Conditions
+              |  / मैं नियम और शर्तों से सहमत हूँ।
+
+              br
+              span(class="text-[13px] text-gray-600 block mt-1")
+                | • All information provided is true to the best of my knowledge.
+                |  / दी गई सभी जानकारी मेरे ज्ञान के अनुसार सही है।
+
+                br
+                | • I authorize the portal to verify my details when required.
+                |  / मैं पोर्टल को आवश्यक होने पर मेरी जानकारी सत्यापित करने की अनुमति देता हूँ।
+
+                br
+                | • Any false information may lead to cancellation of registration.
+                |  / गलत जानकारी देने पर पंजीकरण रद्द किया जा सकता है।
+
+                br
+                | • I will follow all academic and portal-related rules.
+                |  / मैं सभी शैक्षणिक और पोर्टल संबंधी नियमों का पालन करूँगा।
+
+        
+  
+
+
+
         // Submit Button
         button(type="submit" class="bg-gradient-to-r from-[#FF9933] via-[#FFFFFF] to-[#138808] text-gray-900 font-semibold px-6 py-3 rounded-sm shadow-md transition mt-2 hover:from-[#FF9933]/90 hover:via-[#FFFFFF]/90 hover:to-[#138808]/90 max-w-96 w-full mx-auto") Register
 

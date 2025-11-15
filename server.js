@@ -34,20 +34,19 @@ app.get("/contact", (req, res) => {
   });
 });
 app.get("/reg", (req, res) => {
-  res.render("reg", {
-    title: "Student Registration Page",
-    message: "Welcome to the Student Registration Page!",
-  });
+  res.render("reg");
 });
 app.post("/register", upload.none(), (req, res) => {
   const userPath = studentsData;
   const users = JSON.parse(fs.readFileSync(userPath, "utf-8"));
   const newStudentData = {
-    id: toString(users.length + 1), // users.length + 1,
+    id: (users.length + 1).toString(), // users.length + 1,
     name: req.body.name,
     email: req.body.email,
+    category: req.body.category,
     age: req.body.age,
     course: req.body.course,
+    state: req.body.state,
     profile: req.body.profile,
   };
   users.push(newStudentData);

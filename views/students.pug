@@ -30,31 +30,49 @@ html(lang="en")
     marquee(direction="left" scrollamount="6" class="bg-[#138808] text-white py-2 font-semibold shadow-inner")
       | 🎓 View All Registered Students | 💻 Access Course Details | 🏫 Stay Updated with the Latest Academic Announcements!
 
-    // 🔹 Main Section
-    main(class="container mx-auto text-center py-10 px-4 flex-grow")
-      a(href="/reg" class="inline-block mb-3 text-lg text-red-500 animate-pulse  hover:underline font-semibold ")
-        | 👉 New Student Registration ➔
-      h2(class="text-3xl md:text-4xl font-bold text-[#000080] mb-6") Registered Students List
-      p(class="text-gray-600 mb-8 max-w-2xl mx-auto")
-        | Below is the list of students enrolled under various government-supported educational programs.
+main(class="container mx-auto text-center py-10 px-4 flex-grow")
 
-      // 🔹 Students Grid
-      ul(class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto")
-        each student in students
-          li(class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition border-t-4 border-[#FF9933]")
-            a(href=`/student/${student.id}` class="block")
-              h3(class="text-lg font-semibold text-[#000080] mb-2") #{student.name}
-              p(class="text-gray-600") 📘 #{student.course}
+  a(href="/reg" class="inline-block mb-3 text-lg text-red-500 animate-pulse hover:underline font-semibold")
+    | 👉 New Student Registration ➔
 
-      // 🔙 Back to Home
-      div(class="mt-10")
-        a(href="/" class="inline-block bg-[#000080] hover:bg-[#001860] text-white px-8 py-3 rounded-full font-medium shadow-md transition")
-          | ← Back to Home
+  h2(class="text-3xl md:text-4xl font-bold text-[#000080] mb-6") Registered Students List
 
-    // 🔹 Footer
-    footer(class="bg-[#000080] text-white text-center py-6 mt-12")
-      div(class="mb-2")
-        a(href="#" class="mx-3 hover:text-[#FF9933]") Privacy Policy
-        a(href="#" class="mx-3 hover:text-[#FF9933]") Terms of Service
-        a(href="#" class="mx-3 hover:text-[#FF9933]") Contact Support
-      p(class="text-sm mt-3") © 2025 National Student Education Portal | Ministry of Education, Government of India 🇮🇳
+  p(class="text-gray-600 mb-8 max-w-2xl mx-auto")
+    | Below is the list of students enrolled under various government-supported educational programs.
+
+  // 🔹 Filter / Search Section
+  div(class="max-w-md mx-auto mb-8")
+    input(type="text" placeholder="🔍 Search by name or course..."
+      class="w-full border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#138808]")
+
+  // 🔹 Students Grid
+  ul(class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto")
+    each student in students
+      li(class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition border-t-4 border-[#FF9933]")
+        a(href=`/student/${student.id}` class="block")
+          h3(class="text-lg font-semibold text-[#000080] mb-2") #{student.name}
+          p(class="text-gray-600") 📘 #{student.course}
+
+  // 🔹 Pagination
+  div(class="mt-10")
+    a(href="1")(class="px-4 py-2 mx-1 bg-gray-200 hover:bg-gray-300 rounded-full") ⬅ Prev
+    a(href="1")(class="px-4 py-2 mx-1 bg-[#138808] text-white rounded-full hover:bg-[#0f6a06]") 1
+    a(href="2")(class="px-4 py-2 mx-1 bg-gray-200 hover:bg-gray-300 rounded-full") 2
+    a(href="3")(class="px-4 py-2 mx-1 bg-gray-200 hover:bg-gray-300 rounded-full") 3
+    a(href="4")(class="px-4 py-2 mx-1 bg-gray-200 hover:bg-gray-300 rounded-full") Next ➡
+
+  // 🔙 Back to Home
+  div(class="mt-10")
+    a(href="/" class="inline-block bg-[#000080] hover:bg-[#001860] text-white px-8 py-3 rounded-full font-medium shadow-md transition")
+      | ← Back to Home
+
+// 🔹 Footer
+footer(class="bg-[#000080] text-white text-center py-6 mt-12")
+  div(class="mb-2")
+    a(href="#" class="mx-3 hover:text-[#FF9933]") Privacy Policy
+    a(href="#" class="mx-3 hover:text-[#FF9933]") Terms of Service
+    a(href="#" class="mx-3 hover:text-[#FF9933]") Contact Support
+  p(class="text-sm mt-3") © 2025 National Student Education Portal | Ministry of Education, Government of India 🇮🇳
+
+
+
