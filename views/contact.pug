@@ -62,7 +62,7 @@ html(lang="en")
             |  Mon–Sat, 9:00 AM – 6:00 PM
 
       // Contact Form
-      div(class="bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#138808] backdrop-blur-sm hover:shadow-xl transition")
+      div(class="bg-white rounded-2xl shadow-md p-8 border-t-4 border-[#138808] backdrop-blur-sm hover:shadow-xl transition")
         h3(class="text-2xl font-semibold text-[#000080] mb-6") Send Us a Message
         form(action="/submit" method="POST" class="space-y-5")
           input(
@@ -70,24 +70,24 @@ html(lang="en")
             name="name",
             placeholder="Your Full Name",
             required,
-            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF9933]"
+            class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF9933]"
           )
           input(
             type="email",
             name="email",
             placeholder="Your Email Address",
             required,
-            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF9933]"
+            class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF9933]"
           )
           textarea(
             name="message",
             placeholder="Your Message...",
             required,
-            class="w-full border border-gray-300 rounded-lg px-4 py-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#FF9933]"
+            class="w-full border border-gray-300 rounded-md px-4 py-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#FF9933]"
           )
           button(
             type="submit",
-            class="w-full bg-gradient-to-r from-[#FF9933] to-[#138808] text-white font-semibold py-3 rounded-full shadow-md hover:opacity-90 transition"
+            class="bg-gradient-to-r from-[#FF9933] via-[#FFFFFF] to-[#138808] text-gray-900 font-semibold px-6 py-3 rounded-sm shadow-md transition mt-2 hover:from-[#FF9933]/90 hover:via-[#FFFFFF]/90 hover:to-[#138808]/90 max-w-96 w-full mx-auto"
           ) Send Message
 
     // 🔹 Back Button
